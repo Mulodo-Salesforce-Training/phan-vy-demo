@@ -45,7 +45,13 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>Job_Application_Hightlight</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Job_Application_Hightlight</fullName>
+        <fields>Position__c</fields>
+        <fields>Status__c</fields>
+        <label>Job Application Hightlight</label>
+    </compactLayouts>
     <deploymentStatus>InDevelopment</deploymentStatus>
     <description>Represents a candidate&apos;s application to a position</description>
     <enableActivities>true</enableActivities>

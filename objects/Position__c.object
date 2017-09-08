@@ -85,12 +85,12 @@
     <fields>
         <fullName>Days_Open__c</fullName>
         <externalId>false</externalId>
-        <formula>0</formula>
+        <formula>IF(AND(NOT(ISBLANK(Open_Date__c)),TODAY()&gt;Open_Date__c, TODAY()&lt;Close_Date__c) , Close_Date__c -  TODAY(), 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Days Open</label>
         <precision>18</precision>
         <required>false</required>
-        <scale>2</scale>
+        <scale>0</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -194,6 +194,72 @@
     </fields>
     <fields>
         <fullName>Job_Level__c</fullName>
+        <externalId>false</externalId>
+        <label>Job Level</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Fresher</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Junior</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Senior</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lead</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sai Gon</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ha Noi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Da Nang</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>At home</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Max_Pay__c</fullName>
         <externalId>false</externalId>
         <label>Max Pay</label>
         <precision>18</precision>
@@ -340,6 +406,52 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Job_Level__c</picklist>
+            <values>
+                <fullName>Fresher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Junior</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>At home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Da Nang</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ha Noi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sai Gon</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Closed - Canceled</fullName>
@@ -403,6 +515,52 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Job_Level__c</picklist>
+            <values>
+                <fullName>Fresher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Junior</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>At home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Da Nang</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ha Noi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sai Gon</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Closed - Canceled</fullName>
@@ -441,6 +599,14 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>Days_Open__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Open_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Days_Open__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Type__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Days_Open__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Open_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Close_Date__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>
